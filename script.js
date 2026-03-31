@@ -1,7 +1,7 @@
 let current = 1;
-let level1 = 3;
-let level2 = 5;
-let level3 = 8;
+let level1 = 4;
+let level2 = 9;
+let level3 = 16;
 
 function start() {
     startLevel1();
@@ -9,18 +9,28 @@ function start() {
 
 function startLevel1() {
     current = 1;
+    level = 1;
     setTimeout(createCircle, 200, 1, "blue");
     setTimeout(createCircle, 400, 2, "blue");
     setTimeout(createCircle, 600, 3, "blue");
 }
 
 function startLevel2() {
-    current = 1;
-    setTimeout(createCircle, 200, 1, "orange");
-    setTimeout(createCircle, 400, 2, "orange");
-    setTimeout(createCircle, 600, 3, "orange");
-    setTimeout(createCircle, 600, 4, "orange");
-    setTimeout(createCircle, 600, 5, "orange");
+    setTimeout(createCircle, 200, 4, "orange");
+    setTimeout(createCircle, 400, 5, "orange");
+    setTimeout(createCircle, 600, 6, "orange");
+    setTimeout(createCircle, 800, 7, "orange");
+    setTimeout(createCircle, 1000, 8, "orange");
+}
+
+function startLevel3() {
+    setTimeout(createCircle, 200, 9, "red");
+    setTimeout(createCircle, 400, 10, "red");
+    setTimeout(createCircle, 600, 11, "red");
+    setTimeout(createCircle, 800, 12, "red");
+    setTimeout(createCircle, 1000, 13, "red");
+    setTimeout(createCircle, 1200, 14, "red");
+    setTimeout(createCircle, 1400, 15, "red");
 }
 
 function createCircle(num, color) {
@@ -29,7 +39,7 @@ function createCircle(num, color) {
 
     circle.style.width = "50px";
     circle.style.height = "50px";
-    circle.style.borderRadius = "50%";
+    circle.style.borderRadius = "12px";
     circle.style.backgroundColor = color;
     circle.style.color = "white";
     circle.style.alignContent = "center";
@@ -51,8 +61,14 @@ function handleCircleClick(event) {
         circle.remove();
     }
 
-    if (current == level1 + 1) {
+    if (current == level1) {
         startLevel2();
+    }
+    else if (current == level2) {
+        startLevel3();
+    }
+    else if (current == level3) {
+        alert("You won!");
     }
 }
 
